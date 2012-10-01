@@ -1,0 +1,15 @@
+REBOOTING VIM
+=============
+
+After borrowing vim configurations from others for years, I have
+finally rebooted and have built my own vim configuration from
+scratch.  No cargo-culting: if I don't know what it is, it isn't
+in my .vimrc file.
+
+Install
+-------
+
+  cd ~
+  git clone git://github.com:joelhelbling/vim-from-scratch.git .vim
+  ln -s ./vim/vimrc .vimrc
+
