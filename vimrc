@@ -1,9 +1,9 @@
-" A brand-new .vimrc, written completely and interatively
+" A brand-new .vimrc, written completely and interactively
 " from scratch, by Joel Helbling.
 
 set nocompatible
 
-call pathogen#infect()
+source ~/.vim/bundles.vim
 
 set number                      " turn on line numbers
 set lcs=tab:->,trail:•,nbsp:%   " set trailing (invisible) characters
@@ -16,8 +16,8 @@ syntax enable
 set background=light
 colorscheme solarized
 syntax on
-command godark :set background=dark
-command golight :set background=light
+command DARK :set background=dark
+command LIGHT :set background=light
 
 set softtabstop=2               " number of spaces in soft tab
 set shiftwidth=2                " number of spaces to shift <>
@@ -29,6 +29,10 @@ set backspace=indent,eol,start  " backspace over everything
 set ignorecase                  " ignore case when searching (by default)
 set history=1000                " store lots of command line history
 
+filetype on                     " enable filetype detection
+filetype indent on              " enable filetype-specific indenting
+filetype plugin on              " enable filetype-specific plugins
+
 " Configuring the GUI
 if has("gui_mac") || has("gui_macvim")
   set guifont=Consolas:h16      " set font
@@ -38,6 +42,8 @@ if has("gui_mac") || has("gui_macvim")
     set transparency=0          " setting transparency
   catch
   endtry
+else
+  let &t_Co=256
 endif
 
 set wildmenu                    " tab completion menu
@@ -72,5 +78,11 @@ nmap <F8> :TagbarToggle<CR>
 autocmd FileType ruby set commentstring=#\ %s
 autocmd FileType vim set commentstring=\"\ %s
 
-" TODO
+" needed for vim-textobj-rubyblock
+runtime macros/matchit.vim
 
+" clear trailing whitespace from file
+map <leader>s :%s/\s+$//g<CR>
+
+" automatically source vimrc if writing .vimrc or vimrc
+autocmd! BufWritePost .vimrc source $MYVIMRC
