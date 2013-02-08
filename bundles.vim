@@ -24,13 +24,14 @@ augroup bundles
     Bundle 'tpope/vim-commentary'
     Bundle 'tpope/vim-cucumber'
     Bundle 'tpope/vim-endwise'
-    Bundle 'tpope/vim-five'
+    Bundle 'tpope/vim-fugitive'
     Bundle 'tpope/vim-haml'
     Bundle 'itspriddle/vim-jquery'
     Bundle 'tpope/vim-rails'
     Bundle 'vim-ruby/vim-ruby'
     Bundle 'nelstrom/vim-textobj-rubyblock'
     Bundle 'kana/vim-textobj-user'
+    Bundle 'xolox/vim-session'
 
   filetype plugin indent on
 
