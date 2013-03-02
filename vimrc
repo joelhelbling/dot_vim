@@ -5,6 +5,9 @@ set nocompatible
 
 source ~/.vim/bundles.vim
 
+let g:session_autosave = 1
+let g:session_autoload = 1
+
 set number                      " turn on line numbers
 set lcs=tab:->,trail:•,nbsp:%   " set trailing (invisible) characters
 set list
@@ -44,6 +47,10 @@ if has("gui_mac") || has("gui_macvim")
   endtry
 else
   let &t_Co=256
+
+  " change cursor for insert mode (in iTerm2)
+  let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+  let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 endif
 
 set wildmenu                    " tab completion menu
@@ -86,3 +93,4 @@ map <leader>s :%s/\s+$//g<CR>
 
 " automatically source vimrc if writing .vimrc or vimrc
 autocmd! BufWritePost .vimrc source $MYVIMRC
+
