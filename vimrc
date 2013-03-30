@@ -69,6 +69,7 @@ let mapleader = ","
 command Thtml :%!tidy -q -i -html
 command Txml  :%!tidy -q -i -xml
 
+" Toggle NERDTree on/off
 map <leader>n :NERDTreeToggle<CR> " toggle project pane
 
 " FuzzyFinder (https://github.com/vim-scripts/FuzzyFinder)
@@ -90,6 +91,9 @@ runtime macros/matchit.vim
 
 " clear trailing whitespace from file
 map <leader>s :%s/\s+$//g<CR>
+
+" Auto-check spelling when editing markdown files:
+autocmd BufNewFile,BufRead *.markdown setlocal spell spelllang=en_us
 
 " automatically source vimrc if writing .vimrc or vimrc
 autocmd! BufWritePost .vimrc source $MYVIMRC
