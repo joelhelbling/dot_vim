@@ -41,8 +41,10 @@ if has("gui")
   set guioptions-=T             " turn toolbar off by default
   set guioptions-=m             " turn menu off by default
 endif
+
 if has("gui_mac") || has("gui_macvim")
-  set guifont=Consolas:h16      " set font
+  set guifont=Menlo:h18         " set font
+  set linespace=4
   try
     set transparency=0          " setting transparency
   catch

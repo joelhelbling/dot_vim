@@ -32,6 +32,11 @@ augroup bundles
     Bundle 'nelstrom/vim-textobj-rubyblock'
     Bundle 'kana/vim-textobj-user'
     Bundle 'xolox/vim-session'
+    Bundle 'elixir-lang/vim-elixir'
+    Bundle 'groenewege/vim-less'
+    Bundle 'vim-scripts/HTML-AutoCloseTag'
+    Bundle 'nathanielkane/vim-indent-guides'
+    Bundle 'airblade/vim-gitgutter'
 
   filetype plugin indent on
 
