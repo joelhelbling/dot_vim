@@ -19,8 +19,8 @@ syntax enable
 set background=light
 colorscheme solarized
 syntax on
-command DARK :set background=dark
-command LIGHT :set background=light
+command! DARK :set background=dark
+command! LIGHT :set background=light
 
 set softtabstop=2               " number of spaces in soft tab
 set shiftwidth=2                " number of spaces to shift <>
@@ -31,15 +31,22 @@ set backspace=indent,eol,start  " backspace over everything
 
 set ignorecase                  " ignore case when searching (by default)
 set history=1000                " store lots of command line history
+set autoread                    " automatically load files changed outside vim
 
 filetype on                     " enable filetype detection
 filetype indent on              " enable filetype-specific indenting
 filetype plugin on              " enable filetype-specific plugins
 
 " Configuring the GUI
-if has("gui")
+if has("gui_running")
   set guioptions-=T             " turn toolbar off by default
   set guioptions-=m             " turn menu off by default
+else
+  let &t_Co=256
+
+  " change cursor for insert mode (in iTerm2)
+  let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+  let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 endif
 
 if has("gui_mac") || has("gui_macvim")
@@ -49,12 +56,6 @@ if has("gui_mac") || has("gui_macvim")
     set transparency=0          " setting transparency
   catch
   endtry
-else
-  let &t_Co=256
-
-  " change cursor for insert mode (in iTerm2)
-  let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-  let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 endif
 
 set wildmenu                    " tab completion menu
@@ -70,25 +71,8 @@ set laststatus=2                " make status line visible
 let mapleader = ","
 
 " Beautify HTML, XML
-command Thtml :%!tidy -q -i -html
-command Txml  :%!tidy -q -i -xml
-
-" Toggle NERDTree on/off
-map <leader>n :NERDTreeToggle<CR> " toggle project pane
-
-" FuzzyFinder (https://github.com/vim-scripts/FuzzyFinder)
-map <leader>b :FufBuffer<CR>      " pick a file from the buffers
-map <leader>o :FufFile<CR>        " open a file
-map <leader>f :FufLine<CR>        " find a line
-map <leader>t :FufTag<CR>         " find a tag
-
-" Source code navigator (http://majutsushi.github.com/tagbar/)
-nmap <F8> :TagbarToggle<CR>
-
-" vim-commentary (https://github.com/tpope/vim-commentary)
-" activate with \\\, \\{motion} or \\u (uncomment)
-autocmd FileType ruby set commentstring=#\ %s
-autocmd FileType vim set commentstring=\"\ %s
+command! Thtml :%!tidy -q -i -html
+command! Txml  :%!tidy -q -i -xml
 
 " needed for vim-textobj-rubyblock
 runtime macros/matchit.vim
@@ -100,5 +84,40 @@ map <leader>s :%s/\s+$//g<CR>
 autocmd BufNewFile,BufRead *.markdown setlocal spell spelllang=en_us
 
 " automatically source vimrc if writing .vimrc or vimrc
-autocmd! BufWritePost .vimrc source $MYVIMRC
+if has("autocmd")
+  autocmd! BufWritePost .vimrc source $MYVIMRC
+endif
+
+" BUNDLE CONFIG --------------------------------------------------
+
+" scrooloose/nerdtree
+map <leader>n :NERDTreeToggle<CR> " toggle project pane
+
+" majutsushi/tagbar
+nmap <F8> :TagbarToggle<CR>
+
+" tpope/vim-commentary
+" activate with \\\, \\{motion} or \\u (uncomment)
+autocmd FileType ruby set commentstring=#\ %s
+autocmd FileType vim set commentstring=\"\ %s
+
+" thoughtbot/vim-rspec
+map <Leader>t :call RunCurrentSpecFile()<CR>
+map <Leader>s :call RunNearestSpec()<CR>
+map <Leader>l :call RunLastSpec()<CR>
+map <Leader>a :call RunAllSpecs()<CR>
+
+" tpope/obsession
+if filereadable('./Session.vim')
+  source ./Session.vim
+endif
+
+" FuzzyFinder
+map <leader>b :FufBuffer<CR>      " pick a file from the buffers
+map <leader>o :FufFile<CR>        " open a file
+map <leader>f :FufLine<CR>        " find a line
+map <leader>t :FufTag<CR>         " find a tag
+
+" ctrlp
+map <Ctrl>p :CtrlPMixed
 

@@ -12,31 +12,64 @@ augroup bundles
 
     Bundle 'L9'
 
-  " finder
-    Bundle 'FuzzyFinder'
+  " theme
+    Bundle 'altercation/vim-colors-solarized'
 
+  " languages support
+    Bundle 'kchmck/vim-coffee-script'
+    Bundle 'elixir-lang/vim-elixir'
+    Bundle 'vim-ruby/vim-ruby'
+    Bundle 'tpope/vim-cucumber'
+    Bundle 'tpope/vim-haml'
+    Bundle 'tpope/vim-rails'
+    Bundle 'itspriddle/vim-jquery'
+    Bundle 'groenewege/vim-less'
+
+  " coding helpers
+    Bundle 'tpope/vim-commentary'
+    " comment whole blocks (combine with rubyblock!)
+
+    Bundle 'tpope/vim-endwise'
+    " auto-end blocks (even ruby!)
+
+    Bundle 'vim-scripts/HTML-AutoCloseTag'
+    " auto-close html tags
+
+    " Bundle 'Townk/vim-autoclose'
+    " Eclipse-style auto-close parens and the like
+
+    Bundle 'tpope/vim-surround'
+    Bundle 'godlygeek/tabular'
+    Bundle 'airblade/vim-gitgutter'
+    Bundle 'kana/vim-textobj-user'
+    Bundle 'nelstrom/vim-textobj-rubyblock'
+           " usage: in visual mode,
+           "   type `ar` for the whole block,
+           "   and `ir` for the inner portion of the block
+    Bundle 'thoughtbot/vim-rspec'
+
+  " code navigation
     Bundle 'scrooloose/nerdtree'
     Bundle 'majutsushi/tagbar'
-    Bundle 'godlygeek/tabular'
-    Bundle 'majutsushi/tagbar'
-    Bundle 'kchmck/vim-coffee-script'
-    Bundle 'altercation/vim-colors-solarized'
-    Bundle 'tpope/vim-commentary'
-    Bundle 'tpope/vim-cucumber'
-    Bundle 'tpope/vim-endwise'
     Bundle 'tpope/vim-fugitive'
-    Bundle 'tpope/vim-haml'
-    Bundle 'itspriddle/vim-jquery'
-    Bundle 'tpope/vim-rails'
-    Bundle 'vim-ruby/vim-ruby'
-    Bundle 'nelstrom/vim-textobj-rubyblock'
-    Bundle 'kana/vim-textobj-user'
-    Bundle 'xolox/vim-session'
-    Bundle 'elixir-lang/vim-elixir'
-    Bundle 'groenewege/vim-less'
-    Bundle 'vim-scripts/HTML-AutoCloseTag'
-    Bundle 'nathanielkane/vim-indent-guides'
-    Bundle 'airblade/vim-gitgutter'
+    " Bundle 'xolox/vim-session'
+    Bundle 'tpope/vim-obsession'
+    Bundle 'FuzzyFinder'
+    " Bundle 'kien/ctrlp.vim'
+    " Bundle 'rking/ag.vim'
+
+    " suggestions (from DealerMatch)
+    " 'Localtog/vim-easymotion'
+    " 'scroolosse/syntastic'
+    " 'kien/ctrlp.vim'
+    " 'ervandew/supertab'
+    " 'briancollins/vim-jst'
+    " 'nelstrom/vim-visual-star-search'
+    " 'tomasr/molakai'
+    " 'vim-javascript'
+    " 'jgdavey/vim-blockle'
+    " 'ngmy/vim-rubocop'
+    "  ---> see also: `let vimrubocop_config='config/rubocop/rubocop.yml'`
 
   filetype plugin indent on
 
