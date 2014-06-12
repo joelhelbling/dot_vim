@@ -121,3 +121,6 @@ endif
 " ctrlp
 map <Ctrl>p :CtrlPMixed
 
+" for Kramer
+command! KJON :inoremap kj <Esc>
+command! KJOFF :iunmap kj
