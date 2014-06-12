@@ -54,8 +54,8 @@ augroup bundles
     Bundle 'tpope/vim-fugitive'
     " Bundle 'xolox/vim-session'
     Bundle 'tpope/vim-obsession'
-    Bundle 'FuzzyFinder'
-    " Bundle 'kien/ctrlp.vim'
+    " Bundle 'FuzzyFinder'
+    Bundle 'kien/ctrlp.vim'
     " Bundle 'rking/ag.vim'
 
     " suggestions (from DealerMatch)

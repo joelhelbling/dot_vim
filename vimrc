@@ -113,10 +113,10 @@ if filereadable('./Session.vim')
 endif
 
 " FuzzyFinder
-map <leader>b :FufBuffer<CR>      " pick a file from the buffers
-map <leader>o :FufFile<CR>        " open a file
-map <leader>f :FufLine<CR>        " find a line
-map <leader>t :FufTag<CR>         " find a tag
+"map <leader>b :FufBuffer<CR>      " pick a file from the buffers
+"map <leader>o :FufFile<CR>        " open a file
+"map <leader>f :FufLine<CR>        " find a line
+"map <leader>t :FufTag<CR>         " find a tag
 
 " ctrlp
 map <Ctrl>p :CtrlPMixed
