@@ -14,16 +14,20 @@ augroup bundles
 
   " theme
     Bundle 'altercation/vim-colors-solarized'
+    Bundle 'bling/vim-airline'
 
   " languages support
     Bundle 'kchmck/vim-coffee-script'
     Bundle 'elixir-lang/vim-elixir'
     Bundle 'vim-ruby/vim-ruby'
+    Bundle 'tpope/vim-rails'
     Bundle 'tpope/vim-cucumber'
     Bundle 'tpope/vim-haml'
-    Bundle 'tpope/vim-rails'
-    Bundle 'itspriddle/vim-jquery'
+    Bundle 'slim-template/vim-slim'
     Bundle 'groenewege/vim-less'
+    Bundle 'itspriddle/vim-jquery'
+    Bundle 'nono/vim-handlebars'
+    Bundle 'wavded/vim-stylus'
 
   " coding helpers
     Bundle 'tpope/vim-commentary'
@@ -56,7 +60,7 @@ augroup bundles
     Bundle 'tpope/vim-obsession'
     " Bundle 'FuzzyFinder'
     Bundle 'kien/ctrlp.vim'
-    " Bundle 'rking/ag.vim'
+    Bundle 'rking/ag.vim'
 
     " suggestions (from DealerMatch)
     " 'Localtog/vim-easymotion'

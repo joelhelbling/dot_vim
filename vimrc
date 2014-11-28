@@ -3,6 +3,9 @@
 
 set nocompatible
 
+set backupdir=~/.vim/backup
+set directory=~/.vim/tmp
+
 source ~/.vim/bundles.vim
 
 let g:session_autosave = 1
@@ -89,6 +92,9 @@ if has("autocmd")
 endif
 
 " BUNDLE CONFIG --------------------------------------------------
+
+" bling/vim-airline
+let g:airline_powerline_fonts = 1
 
 " scrooloose/nerdtree
 map <leader>n :NERDTreeToggle<CR> " toggle project pane
