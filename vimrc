@@ -52,8 +52,9 @@ else
   let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 endif
 
-if has("gui_mac") || has("gui_macvim")
-  set guifont=Menlo:h18         " set font
+if has("gui_mac") || has("gui_macvim") || has("gui")
+  " set guifont=Menlo:h18         " set font
+  set guifont=Monaco\ for\ Powerline:h16
   set linespace=4
   try
     set transparency=0          " setting transparency
@@ -67,7 +68,11 @@ set wildmode=list:longest,full
 set mouse=a                     " use mousewheel in console mode
 
 " Status line
-set statusline=%Y:\ %F%m%=LINE:%l\/%L(%p%%)\ COL:%v\ CHR:0x\%02.2B
+set statusline=%f%m\ %y
+set statusline+=%m%=
+set statusline+=LINE:%l\/%L(%p%%)
+set statusline+=\ COL:%v
+set statusline+=\ CHR:0x\%02.2B
 "set statusline=%F%m%r%h%w\ %{&ff}\ %Y\ [0x\%02.2B]\ %l/%L,%v\ %p%%
 set laststatus=2                " make status line visible
 
