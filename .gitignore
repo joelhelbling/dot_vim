@@ -1,4 +1,6 @@
 bundle/*
+backup/*
+tmp/*
 .netrwhist
 sessions
 ftplugin

@@ -32,6 +32,8 @@ set expandtab                   " use spaces instead of tabs
 set autoindent                  " turn on autoindent
 set backspace=indent,eol,start  " backspace over everything
 
+set incsearch                   " search incrementally (as you type)
+set hlsearch                    " highlight search term
 set ignorecase                  " ignore case when searching (by default)
 set history=1000                " store lots of command line history
 set autoread                    " automatically load files changed outside vim
@@ -55,7 +57,7 @@ endif
 if has("gui_mac") || has("gui_macvim") || has("gui")
   " set guifont=Menlo:h18         " set font
   set guifont=Monaco\ for\ Powerline:h16
-  set linespace=4
+  set linespace=1
   try
     set transparency=0          " setting transparency
   catch
