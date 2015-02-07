@@ -137,3 +137,7 @@ map <Ctrl>p :CtrlPMixed
 " for Kramer
 command! KJON :inoremap kj <Esc>
 command! KJOFF :iunmap kj
+
+" recognize .md as markdown
+au BufRead,BufNewFile *.md set filetype=markdown
+
