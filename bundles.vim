@@ -28,6 +28,7 @@ augroup bundles
     Bundle 'itspriddle/vim-jquery'
     Bundle 'nono/vim-handlebars'
     Bundle 'wavded/vim-stylus'
+    Bundle 'fatih/vim-go'
 
   " coding helpers
     Bundle 'tpope/vim-commentary'
