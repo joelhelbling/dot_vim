@@ -12,7 +12,8 @@ let g:session_autosave = 1
 let g:session_autoload = 1
 
 set number                      " turn on line numbers
-set lcs=tab:->,trail:•,nbsp:%   " set trailing (invisible) characters
+set listchars=tab:▸\ ,trail:¬,nbsp:%           " invisible chars: non-breaking space
+command! GO :set listchars=trail:•,nbsp:%
 set list
 set cursorline
 set visualbell
