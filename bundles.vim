@@ -20,6 +20,7 @@ augroup bundles
     Bundle 'kchmck/vim-coffee-script'
     Bundle 'elixir-lang/vim-elixir'
     Bundle 'vim-ruby/vim-ruby'
+    Bundle 'tpope/vim-bundler'
     Bundle 'tpope/vim-rails'
     Bundle 'tpope/vim-cucumber'
     Bundle 'tpope/vim-haml'
