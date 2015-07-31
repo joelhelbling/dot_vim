@@ -20,7 +20,7 @@ set visualbell
 
 " Theme
 syntax enable
-set background=light
+set background=dark
 colorscheme solarized
 syntax on
 command! DARK :set background=dark
@@ -57,7 +57,7 @@ endif
 
 if has("gui_mac") || has("gui_macvim") || has("gui")
   " set guifont=Menlo:h18         " set font
-  set guifont=Monaco\ for\ Powerline:h16
+  set guifont=Monaco\ for\ Powerline:h14
   set linespace=1
   try
     set transparency=0          " setting transparency
