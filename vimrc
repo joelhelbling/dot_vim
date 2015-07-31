@@ -153,3 +153,13 @@ command! KJOFF :iunmap kj
 " recognize .md as markdown
 au BufRead,BufNewFile *.md set filetype=markdown
 
+" tab navigation
+nnoremap th  :tabfirst<CR>
+nnoremap tn  :tabnext<CR>
+nnoremap tk  :tabnext<CR>
+nnoremap tj  :tabprev<CR>
+nnoremap tp  :tabprev<CR>
+nnoremap tl  :tablast<CR>
+nnoremap te  :tabedit<Space>
+nnoremap tm  :tabm<Space>
+nnoremap td  :tabclose<CR>
