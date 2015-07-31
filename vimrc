@@ -55,14 +55,20 @@ else
   let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 endif
 
-if has("gui_mac") || has("gui_macvim") || has("gui")
-  " set guifont=Menlo:h18         " set font
-  set guifont=Monaco\ for\ Powerline:h14
+if has("gui")
   set linespace=1
   try
     set transparency=0          " setting transparency
   catch
   endtry
+
+  set guifont=Inconsolata\ 11
+
+elseif has("gui_mac") || has("gui_macvim")
+
+  " set guifont=Menlo:h18         " set font
+  set guifont=Monaco\ for\ Powerline:h14
+
 endif
 
 set wildmenu                    " tab completion menu
@@ -163,3 +169,7 @@ nnoremap tl  :tablast<CR>
 nnoremap te  :tabedit<Space>
 nnoremap tm  :tabm<Space>
 nnoremap td  :tabclose<CR>
+
+if filereadable('./.private/vimrc')
+  source ./.private/vimrc
+endif
