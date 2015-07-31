@@ -63,6 +63,7 @@ augroup bundles
     " Bundle 'FuzzyFinder'
     Bundle 'kien/ctrlp.vim'
     Bundle 'rking/ag.vim'
+    Bundle 'FelikZ/ctrlp-py-matcher'
 
     " suggestions (from DealerMatch)
     " 'Localtog/vim-easymotion'

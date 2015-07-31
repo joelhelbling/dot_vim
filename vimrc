@@ -134,6 +134,17 @@ endif
 
 " ctrlp
 map <Ctrl>p :CtrlPMixed
+let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
+      \ --ignore .git
+      \ --ignore .svn
+      \ --ignore .hg
+      \ --ignore .DS_Store
+      \ --ignore "**/*.pyc"
+      \ -g ""'
+let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
+
+" Ag
+map <leader>f :Ag<space>
 
 " for Kramer
 command! KJON :inoremap kj <Esc>
