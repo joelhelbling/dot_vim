@@ -89,7 +89,7 @@ command! Txml  :%!tidy -q -i -xml
 runtime macros/matchit.vim
 
 " clear trailing whitespace from file
-map <leader>s :%s/\s+$//g<CR>
+map <leader>s :%s/\s\s*$//g<CR>
 
 " Auto-check spelling when editing markdown files:
 autocmd BufNewFile,BufRead *.markdown setlocal spell spelllang=en_us
@@ -117,7 +117,7 @@ autocmd FileType vim set commentstring=\"\ %s
 
 " thoughtbot/vim-rspec
 map <Leader>t :call RunCurrentSpecFile()<CR>
-map <Leader>s :call RunNearestSpec()<CR>
+"map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>l :call RunLastSpec()<CR>
 map <Leader>a :call RunAllSpecs()<CR>
 
