@@ -60,20 +60,24 @@ else
   let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 endif
 
+if has("gui_mac") || has("gui_macvim")
+
+  " Set font for Mac OSX
+  set guifont=Monaco\ for\ Powerline:h14
+
+elseif has("gui")
+
+  " Set font for Ubuntu
+  set guifont=Inconsolata\ 11
+
+endif
+
 if has("gui")
   set linespace=1
   try
     set transparency=0          " setting transparency
   catch
   endtry
-
-  set guifont=Inconsolata\ 11
-
-elseif has("gui_mac") || has("gui_macvim")
-
-  " set guifont=Menlo:h18         " set font
-  set guifont=Monaco\ for\ Powerline:h14
-
 endif
 
 set wildmenu                    " tab completion menu
