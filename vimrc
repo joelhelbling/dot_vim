@@ -3,8 +3,13 @@
 
 set nocompatible
 
-set backupdir=~/.vim/backup
-set directory=~/.vim/tmp
+" Automatically create .backup directory, writable by the group.
+if filewritable(".") && ! filewritable(".vim-backup")
+  silent execute '!umask 002; mkdir .vim-backup'
+endif
+
+set backupdir=./.vim-backup,~/.vim/backup
+set directory=~/.vim-backup,~/.vim/tmp
 
 source ~/.vim/bundles.vim
 
