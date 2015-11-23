@@ -85,6 +85,16 @@ set wildmode=list:longest,full
 
 set mouse=a                     " use mousewheel in console mode
 
+" Window management
+set splitbelow
+set splitright
+nnoremap <C-J> <C-W><C-J> " change focus to window below
+nnoremap <C-K> <C-W><C-K> " change focus to window above
+nnoremap <C-L> <C-W><C-L> " change focus to window to right
+nnoremap <C-H> <C-W><C-H> " change focus to window to left
+nnoremap <C-_> <C-W>_     " maximize current window height
+" nnoremap <C-|> <C-W>|     " maximize current window width
+
 " Status line
 set statusline=%f%m\ %y
 set statusline+=%m%=
