@@ -109,6 +109,7 @@ let mapleader = ","
 " Beautify HTML, XML
 command! Thtml :%!tidy -q -i -html
 command! Txml  :%!tidy -q -i -xml
+command! Tjson :%!python -m json.tool
 
 " needed for vim-textobj-rubyblock
 runtime macros/matchit.vim
