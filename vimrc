@@ -176,6 +176,11 @@ map <leader>f :Ag<space>
 command! KJON :inoremap kj <Esc>
 command! KJOFF :iunmap kj
 
+" for Dustin
+cabbr W w
+map <leader>, :CtrlPMRU<CR>
+let g:ctrlp_mruf_last_entered = 1
+
 " recognize .md as markdown
 au BufRead,BufNewFile *.md set filetype=markdown
 
