@@ -78,6 +78,9 @@ augroup bundles
     " 'ngmy/vim-rubocop'
     "  ---> see also: `let vimrubocop_config='config/rubocop/rubocop.yml'`
 
+  " code reference / help
+    Bundle "rizzatti/dash.vim"
+
   filetype plugin indent on
 
 augroup END
