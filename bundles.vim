@@ -36,7 +36,7 @@ augroup bundles
     " comment whole blocks (combine with rubyblock!)
 
     Bundle 'tpope/vim-endwise'
-    " auto-end blocks (even ruby!)
+    " -- auto-end blocks (even ruby!)
 
     Bundle 'vim-scripts/HTML-AutoCloseTag'
     " auto-close html tags

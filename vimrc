@@ -178,6 +178,8 @@ command! KJOFF :iunmap kj
 
 " for Dustin
 cabbr W w
+
+" quickly jump back to a recently edited file
 map <leader>, :CtrlPMRU<CR>
 let g:ctrlp_mruf_last_entered = 1
 
