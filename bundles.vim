@@ -30,6 +30,7 @@ augroup bundles
     Bundle 'nono/vim-handlebars'
     Bundle 'wavded/vim-stylus'
     Bundle 'fatih/vim-go'
+    Bundle 'leafo/moonscript-vim'
 
   " coding helpers
     Bundle 'tpope/vim-commentary'

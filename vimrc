@@ -63,7 +63,8 @@ endif
 if has("gui_mac") || has("gui_macvim")
 
   " Set font for Mac OSX
-  set guifont=Monaco\ for\ Powerline:h14
+  " set guifont=Monaco\ for\ Powerline:h14
+  set guifont=monofur\ for\ Powerline:h18
 
 elseif has("gui")
 
@@ -185,6 +186,7 @@ let g:ctrlp_mruf_last_entered = 1
 
 " recognize .md as markdown
 au BufRead,BufNewFile *.md set filetype=markdown
+au BufRead,BufNewFile *.mdown set filetype=markdown
 
 " tab navigation
 nnoremap th  :tabfirst<CR>
