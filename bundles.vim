@@ -31,6 +31,7 @@ augroup bundles
     Bundle 'wavded/vim-stylus'
     Bundle 'fatih/vim-go'
     Bundle 'leafo/moonscript-vim'
+    Bundle 'chrisbra/Colorizer'
 
   " coding helpers
     Bundle 'tpope/vim-commentary'

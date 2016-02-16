@@ -30,6 +30,7 @@ colorscheme solarized
 syntax on
 command! DARK :set background=dark
 command! LIGHT :set background=light
+let g:colorizer_auto_filetype='css,html'
 
 set softtabstop=2               " number of spaces in soft tab
 set shiftwidth=2                " number of spaces to shift <>
