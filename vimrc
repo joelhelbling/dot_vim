@@ -25,7 +25,7 @@ set visualbell
 
 " Theme
 syntax enable
-set background=dark
+set background=light
 colorscheme solarized
 syntax on
 command! DARK :set background=dark
@@ -104,7 +104,7 @@ nnoremap <C-_> <C-W>_     " maximize current window height
 "set statusline+=\ COL:%v
 "set statusline+=\ CHR:0x\%02.2B
 ""set statusline=%F%m%r%h%w\ %{&ff}\ %Y\ [0x\%02.2B]\ %l/%L,%v\ %p%%
-"set laststatus=2                " make status line visible
+set laststatus=2                " make status line visible
 
 let mapleader = ","
 
@@ -130,9 +130,15 @@ endif
 " BUNDLE CONFIG --------------------------------------------------
 
 " bling/vim-airline
+set encoding=utf-8
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme='powerlineish'
+
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+let g:airline_symbols.space = "\ua0"
 
 " scrooloose/nerdtree
 map <leader>n :NERDTreeToggle<CR> " toggle project pane
