@@ -183,6 +183,10 @@ command! KJOFF :iunmap kj
 " for Dustin
 cabbr W w
 
+" for Tmux
+command! RD :redraw!<CR>
+map <leader>r :redraw!<CR>
+
 " quickly jump back to a recently edited file
 map <leader>, :CtrlPMRU<CR>
 let g:ctrlp_mruf_last_entered = 1
