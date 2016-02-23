@@ -98,13 +98,13 @@ nnoremap <C-_> <C-W>_     " maximize current window height
 " nnoremap <C-|> <C-W>|     " maximize current window width
 
 " Status line
-set statusline=%f%m\ %y
-set statusline+=%m%=
-set statusline+=LINE:%l\/%L(%p%%)
-set statusline+=\ COL:%v
-set statusline+=\ CHR:0x\%02.2B
-"set statusline=%F%m%r%h%w\ %{&ff}\ %Y\ [0x\%02.2B]\ %l/%L,%v\ %p%%
-set laststatus=2                " make status line visible
+"set statusline=%f%m\ %y
+"set statusline+=%m%=
+"set statusline+=LINE:%l\/%L(%p%%)
+"set statusline+=\ COL:%v
+"set statusline+=\ CHR:0x\%02.2B
+""set statusline=%F%m%r%h%w\ %{&ff}\ %Y\ [0x\%02.2B]\ %l/%L,%v\ %p%%
+"set laststatus=2                " make status line visible
 
 let mapleader = ","
 
@@ -131,6 +131,8 @@ endif
 
 " bling/vim-airline
 let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme='powerlineish'
 
 " scrooloose/nerdtree
 map <leader>n :NERDTreeToggle<CR> " toggle project pane

@@ -15,6 +15,7 @@ augroup bundles
   " theme
     Bundle 'altercation/vim-colors-solarized'
     Bundle 'bling/vim-airline'
+    Bundle 'vim-airline/vim-airline-themes'
 
   " languages support
     Bundle 'kchmck/vim-coffee-script'
