@@ -75,9 +75,18 @@ elseif has("gui")
 endif
 
 if has("gui")
+  " set guifont=Menlo:h18         " set font
+  set guifont=Monaco\ for\ Powerline:h16
   set linespace=1
   try
     set transparency=0          " setting transparency
+  catch
+  endtry
+endif
+
+if has("gui")
+  try
+    set transparency=0
   catch
   endtry
 endif
