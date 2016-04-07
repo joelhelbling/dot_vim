@@ -25,6 +25,7 @@ augroup bundles
     Bundle 'tpope/vim-rails'
     Bundle 'tpope/vim-cucumber'
     Bundle 'tpope/vim-haml'
+    Bundle 'liquid.vim'
     Bundle 'slim-template/vim-slim'
     Bundle 'groenewege/vim-less'
     Bundle 'itspriddle/vim-jquery'

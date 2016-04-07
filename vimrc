@@ -4,7 +4,7 @@
 set nocompatible
 
 " Automatically create .backup directory, writable by the group.
-if filewritable(".") && ! filewritable(".vim-backup")
+if filewritable('.') && ! filewritable('.vim-backup')
   silent execute '!umask 002; mkdir .vim-backup'
 endif
 
@@ -127,6 +127,9 @@ if has("autocmd")
   autocmd! BufWritePost .vimrc source $MYVIMRC
 endif
 
+" redraw the screen (helpful in tmux)
+map <leader>d :redraw!<CR>
+
 " BUNDLE CONFIG --------------------------------------------------
 
 " bling/vim-airline
@@ -158,9 +161,14 @@ map <Leader>l :call RunLastSpec()<CR>
 map <Leader>a :call RunAllSpecs()<CR>
 
 " tpope/obsession
-if filereadable('./Session.vim')
-  source ./Session.vim
-endif
+augroup sourcesession
+  autocmd!
+  autocmd VimEnter * nested
+  \ if !argc() && empty(v:this_session) && filereadable('./.vim-backup/Session.vim') |
+  \   source .vim-backup/Session.vim |
+  \ endif |
+  \ Obsess ./.vim-backup/Session.vim
+augroup END
 
 " FuzzyFinder
 "map <leader>b :FufBuffer<CR>      " pick a file from the buffers
