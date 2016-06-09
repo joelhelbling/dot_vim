@@ -67,26 +67,16 @@ if has("gui_mac") || has("gui_macvim")
   " set guifont=Monaco\ for\ Powerline:h14
   set guifont=monofur\ for\ Powerline:h18
 
-elseif has("gui")
-
+elseif has("gui") " means it's gvim
   " Set font for Ubuntu
-  set guifont=Inconsolata\ 11
 
+  set guifont=Cousine\ for\ Powerline\ 14
 endif
 
 if has("gui")
-  " set guifont=Menlo:h18         " set font
-  set guifont=Monaco\ for\ Powerline:h16
   set linespace=1
   try
     set transparency=0          " setting transparency
-  catch
-  endtry
-endif
-
-if has("gui")
-  try
-    set transparency=0
   catch
   endtry
 endif
