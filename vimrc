@@ -64,8 +64,8 @@ endif
 if has("gui_mac") || has("gui_macvim")
 
   " Set font for Mac OSX
-  " set guifont=Monaco\ for\ Powerline:h14
-  set guifont=monofur\ for\ Powerline:h18
+  set guifont=Monaco\ for\ Powerline:h14
+  " set guifont=monofur\ for\ Powerline:h18
 
 elseif has("gui") " means it's gvim
   " Set font for Ubuntu
