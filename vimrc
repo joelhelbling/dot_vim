@@ -9,7 +9,7 @@ if filewritable('.') && ! filewritable('.vim-backup')
 endif
 
 set backupdir=./.vim-backup,~/.vim/backup
-set directory=~/.vim-backup,~/.vim/tmp
+set directory=./.vim-backup,~/.vim/tmp
 
 source ~/.vim/bundles.vim
 
