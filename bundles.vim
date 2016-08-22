@@ -57,6 +57,7 @@ augroup bundles
            "   type `ar` for the whole block,
            "   and `ir` for the inner portion of the block
     Bundle 'thoughtbot/vim-rspec'
+    Bundle 'editorconfig/editorconfig-vim'
 
   " code navigation
     Bundle 'scrooloose/nerdtree'
