@@ -144,15 +144,30 @@ endif
 let g:airline_symbols.space = "\ua0"
 
 " scrooloose/nerdtree
-map <leader>n :NERDTreeToggle<CR> " toggle project pane
+"map <leader>n :NERDTreeToggle<CR> " toggle project pane
+nmap <silent> <Leader>n :call g:WorkaroundNERDTreeToggle()<CR> " toggle project pane with workaround for deleted NT buffer
+
+function! g:WorkaroundNERDTreeToggle()
+  try | NERDTreeToggle | catch | silent! NERDTree | endtry
+endfunction
 
 " majutsushi/tagbar
 nmap <F8> :TagbarToggle<CR>
 
 " tpope/vim-commentary
 " activate with \\\, \\{motion} or \\u (uncomment)
-autocmd FileType ruby set commentstring=#\ %s
-autocmd FileType vim set commentstring=\"\ %s
+if has("autocmd")
+  autocmd FileType ruby set commentstring=#\ %s
+  autocmd FileType javascript set commentstring=//\ %s
+  autocmd FileType vim set commentstring=\"\ %s
+  autocmd FileType moon set commentstring=--\ %s
+  autocmd FileType lua set commentstring=--\ %s
+
+  autocmd FileType moon set listchars=tab:¬,trail:¬,nbsp:%
+  autocmd FileType lua set listchars=tab:¬,trail:¬,nbsp:%
+  autocmd FileType moon setlocal noexpandtab
+  autocmd FileType lua setlocal noexpandtab
+endif
 
 " thoughtbot/vim-rspec
 map <Leader>t :call RunCurrentSpecFile()<CR>
