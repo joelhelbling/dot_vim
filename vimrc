@@ -238,11 +238,11 @@ let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
 map <leader>f :Ag<space>
 
 " for Kramer
-command! KJON :inoremap kj <Esc>
-command! KJOFF :iunmap kj
+"command! KJON :inoremap kj <Esc>
+"command! KJOFF :iunmap kj
 
 " for Dustin
-cabbr W w
+"cabbr W w
 
 " for Tmux
 command! RD :redraw!
