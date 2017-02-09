@@ -1,74 +1,77 @@
 augroup bundles
   autocmd!
 
-  filetype on                    " OS X hack. must be on before it can be turned off
-  filetype off                   " required for vundle
+  filetype on                        " OS X hack. must be on before it can be turned off
+  filetype off                       " required for vundle
 
-  set rtp+=~/.vim/bundle/vundle/ " add vundle to runtime path
-  call vundle#rc()               " invoke vundle
+  set rtp+=~/.vim/bundle/Vundle.vim/ " add vundle to runtime path
+  call vundle#begin()                " invoke vundle
 
   " let Vundle manage vundle
-    Bundle 'gmarik/vundle'
+    Plugin 'gmarik/Vundle.vim'
 
-    Bundle 'L9'
+    Plugin 'L9'
 
   " theme
-    Bundle 'altercation/vim-colors-solarized'
-    Bundle 'bling/vim-airline'
-    Bundle 'vim-airline/vim-airline-themes'
+    Plugin 'altercation/vim-colors-solarized'
+    Plugin 'lifepillar/vim-solarized8'
+    Plugin 'blueshirts/darcula'
+    Plugin 'bling/vim-airline'
+    Plugin 'vim-airline/vim-airline-themes'
 
   " languages support
-    Bundle 'kchmck/vim-coffee-script'
-    Bundle 'elixir-lang/vim-elixir'
-    Bundle 'vim-ruby/vim-ruby'
-    Bundle 'tpope/vim-bundler'
-    Bundle 'tpope/vim-rails'
-    Bundle 'tpope/vim-cucumber'
-    Bundle 'tpope/vim-haml'
-    Bundle 'liquid.vim'
-    Bundle 'slim-template/vim-slim'
-    Bundle 'groenewege/vim-less'
-    Bundle 'itspriddle/vim-jquery'
-    Bundle 'nono/vim-handlebars'
-    Bundle 'wavded/vim-stylus'
-    Bundle 'fatih/vim-go'
-    Bundle 'leafo/moonscript-vim'
-    Bundle 'chrisbra/Colorizer'
+    Plugin 'kchmck/vim-coffee-script'
+    Plugin 'elixir-lang/vim-elixir'
+    Plugin 'vim-ruby/vim-ruby'
+    Plugin 'tpope/vim-bundler'
+    Plugin 'tpope/vim-rails'
+    Plugin 'tpope/vim-cucumber'
+    Plugin 'tpope/vim-haml'
+    Plugin 'liquid.vim'
+    Plugin 'slim-template/vim-slim'
+    Plugin 'groenewege/vim-less'
+    Plugin 'itspriddle/vim-jquery'
+    Plugin 'nono/vim-handlebars'
+    Plugin 'wavded/vim-stylus'
+    Plugin 'fatih/vim-go'
+    Plugin 'leafo/moonscript-vim'
+    Plugin 'chrisbra/Colorizer'
+    Plugin 'ElmCast/elm-vim'
 
   " coding helpers
-    Bundle 'tpope/vim-commentary'
+    Plugin 'tpope/vim-commentary'
     " comment whole blocks (combine with rubyblock!)
 
-    Bundle 'tpope/vim-endwise'
+    Plugin 'tpope/vim-endwise'
     " -- auto-end blocks (even ruby!)
 
-    Bundle 'vim-scripts/HTML-AutoCloseTag'
+    Plugin 'vim-scripts/HTML-AutoCloseTag'
     " auto-close html tags
 
-    " Bundle 'Townk/vim-autoclose'
+    " Plugin 'Townk/vim-autoclose'
     " Eclipse-style auto-close parens and the like
 
-    Bundle 'tpope/vim-surround'
-    Bundle 'godlygeek/tabular'
-    Bundle 'airblade/vim-gitgutter'
-    Bundle 'kana/vim-textobj-user'
-    Bundle 'nelstrom/vim-textobj-rubyblock'
+    Plugin 'tpope/vim-surround'
+    Plugin 'godlygeek/tabular'
+    Plugin 'airblade/vim-gitgutter'
+    Plugin 'kana/vim-textobj-user'
+    Plugin 'nelstrom/vim-textobj-rubyblock'
            " usage: in visual mode,
            "   type `ar` for the whole block,
            "   and `ir` for the inner portion of the block
-    Bundle 'thoughtbot/vim-rspec'
-    Bundle 'editorconfig/editorconfig-vim'
+    Plugin 'thoughtbot/vim-rspec'
+    Plugin 'editorconfig/editorconfig-vim'
 
   " code navigation
-    Bundle 'scrooloose/nerdtree'
-    Bundle 'majutsushi/tagbar'
-    Bundle 'tpope/vim-fugitive'
-    " Bundle 'xolox/vim-session'
-    Bundle 'tpope/vim-obsession'
-    " Bundle 'FuzzyFinder'
-    Bundle 'kien/ctrlp.vim'
-    Bundle 'rking/ag.vim'
-    Bundle 'FelikZ/ctrlp-py-matcher'
+    Plugin 'scrooloose/nerdtree'
+    Plugin 'majutsushi/tagbar'
+    Plugin 'tpope/vim-fugitive'
+    " Plugin 'xolox/vim-session'
+    Plugin 'tpope/vim-obsession'
+    " Plugin 'FuzzyFinder'
+    Plugin 'kien/ctrlp.vim'
+    Plugin 'rking/ag.vim'
+    Plugin 'FelikZ/ctrlp-py-matcher'
 
     " suggestions (from DealerMatch)
     " 'Localtog/vim-easymotion'
@@ -84,8 +87,9 @@ augroup bundles
     "  ---> see also: `let vimrubocop_config='config/rubocop/rubocop.yml'`
 
   " code reference / help
-    Bundle "rizzatti/dash.vim"
+  Plugin 'rizzatti/dash.vim'
 
+  call vundle#end()
   filetype plugin indent on
 
 augroup END

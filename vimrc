@@ -8,6 +8,17 @@ if filewritable('.') && ! filewritable('.vim-backup')
   silent execute '!umask 002; mkdir .vim-backup'
 endif
 
+let s:default_path = escape(&path, '\ ') " store default value of 'path'
+
+" Always add the current file's directory to the path and tags list if not
+" already there. Add it to the beginning to speed up searches.
+autocmd BufRead *
+      \ let s:tempPath=escape(escape(expand("%:p:h"), ' '), '\ ') |
+      \ exec "set path-=".s:tempPath |
+      \ exec "set path-=".s:default_path |
+      \ exec "set path^=".s:tempPath |
+      \ exec "set path^=".s:default_path
+
 set backupdir=./.vim-backup,~/.vim/backup
 set directory=./.vim-backup,~/.vim/tmp
 
@@ -16,7 +27,7 @@ source ~/.vim/bundles.vim
 let g:session_autosave = 1
 let g:session_autoload = 1
 
-set number                      " turn on line numbers
+set number                                     " turn on line numbers
 set listchars=tab:▸\ ,trail:¬,nbsp:%           " invisible chars: non-breaking space
 command! GO :set listchars=trail:•,nbsp:%
 set list
@@ -26,10 +37,14 @@ set visualbell
 " Theme
 syntax enable
 set background=light
-colorscheme solarized
+" colorscheme solarized
+" colorscheme solarized8_light_high
+colorscheme darcula
 syntax on
-command! DARK :set background=dark
-command! LIGHT :set background=light
+" command! DARK :set background=dark
+" command! LIGHT :set background=light
+command! DARK :colorscheme solarized8_dark_high
+command! LIGHT :colorscheme solarized8_light_high
 let g:colorizer_auto_filetype='css,html'
 
 set softtabstop=2               " number of spaces in soft tab
@@ -64,9 +79,25 @@ endif
 if has("gui_mac") || has("gui_macvim")
 
   " Set font for Mac OSX
-  set guifont=Anonymous\ Pro\ for\ Powerline:h14
-  " set guifont=Monaco\ for\ Powerline:h14
+  " set guifont=Anonymous\ Pro\ for\ Powerline:h14
+  " set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h14
+  " set guifont=Droid\ Sans\ Mono\ Dotted\ for\ Powerline:h14
+  set guifont=Droid\ Sans\ Mono\ Slashed\ for\ Powerline:h14
+  " set guifont=Fira\ Mono\ for\ Powerline:h14
+  " set guifont=Fira\ Mono\ Medium\ for\ Powerline:h14
+  " set guifont=Inconsolata\ for\ Powerline:h18
+  " set guifont=Inconsolata-dz\ for\ Powerline:h14
+  " set guifont=Liberation\ Mono\ for\ Powerline:h14
+  " set guifont=Meslo\ LG\ L\ DZ\ for\ Powerline:h14
+  " set guifont=Meslo\ LG\ M\ DZ\ for\ Powerline:h14
+  " set guifont=Meslo\ LG\ S\ DZ\ for\ Powerline:h14
   " set guifont=monofur\ for\ Powerline:h18
+  " set guifont=Roboto\ Mono\ for\ Powerline:h14
+  " set guifont=Roboto\ Mono\ Light\ for\ Powerline:h14
+  " set guifont=Roboto\ Mono\ Medium\ for\ Powerline:h14
+  " set guifont=Roboto\ Mono\ Thin\ for\ Powerline:h14
+  " set guifont=Source\ Code\ Pro\ for\ Powerline:h18
+  " set guifont=Ubuntu\ Mono\ Derivative\ for\ Powerline:h18
 
 elseif has("gui") " means it's gvim
   " Set font for Ubuntu
@@ -156,7 +187,7 @@ nmap <F8> :TagbarToggle<CR>
 
 " tpope/vim-commentary
 " activate with \\\, \\{motion} or \\u (uncomment)
-if has("autocmd")
+if has('autocmd')
   autocmd FileType ruby set commentstring=#\ %s
   autocmd FileType javascript set commentstring=//\ %s
   autocmd FileType vim set commentstring=\"\ %s
@@ -182,7 +213,8 @@ augroup sourcesession
   \ if !argc() && empty(v:this_session) && filereadable('./.vim-backup/Session.vim') |
   \   source .vim-backup/Session.vim |
   \ endif |
-  \ Obsess ./.vim-backup/Session.vim
+  \ Obsess ./.vim-backup/Session.vim |
+  \
 augroup END
 
 " FuzzyFinder
@@ -213,7 +245,7 @@ command! KJOFF :iunmap kj
 cabbr W w
 
 " for Tmux
-command! RD :redraw!<CR>
+command! RD :redraw!
 map <leader>r :redraw!<CR>
 
 " quickly jump back to a recently edited file
@@ -238,3 +270,14 @@ nnoremap td  :tabclose<CR>
 if filereadable('./.private/vimrc')
   source ./.private/vimrc
 endif
+
+" Elm configurations
+let g:elm_format_autosave = 1
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:elm_syntastic_show_warnings = 1
+
+let g:ycm_semantic_triggers = {
+  \ 'elm' : ['.'],
+  \}
+
