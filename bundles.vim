@@ -12,12 +12,10 @@ augroup bundles
 
     Plugin 'L9'
 
-  " theme
+  " themes
     Plugin 'altercation/vim-colors-solarized'
     Plugin 'lifepillar/vim-solarized8'
     Plugin 'blueshirts/darcula'
-    Plugin 'bling/vim-airline'
-    Plugin 'vim-airline/vim-airline-themes'
 
   " languages support
     Plugin 'kchmck/vim-coffee-script'
@@ -27,20 +25,27 @@ augroup bundles
     Plugin 'tpope/vim-rails'
     Plugin 'tpope/vim-cucumber'
     Plugin 'tpope/vim-haml'
-    Plugin 'liquid.vim'
+    " Plugin 'liquid.vim'
     Plugin 'slim-template/vim-slim'
     Plugin 'groenewege/vim-less'
+    Plugin 'wavded/vim-stylus'
     Plugin 'itspriddle/vim-jquery'
     Plugin 'nono/vim-handlebars'
-    Plugin 'wavded/vim-stylus'
     Plugin 'fatih/vim-go'
     Plugin 'leafo/moonscript-vim'
-    Plugin 'chrisbra/Colorizer'
     Plugin 'ElmCast/elm-vim'
+    Plugin 'mxw/vim-jsx'
+    Plugin 'vim-javascript'
 
   " coding helpers
+    Plugin 'vim-syntastic/syntastic'
+    Plugin 'ngmy/vim-rubocop'
+    Plugin 'jgdavey/vim-blockle'
     Plugin 'tpope/vim-commentary'
     " comment whole blocks (combine with rubyblock!)
+
+    Plugin 'chrisbra/Colorizer'
+    " for CSS, colorizes color names and codes
 
     Plugin 'tpope/vim-endwise'
     " -- auto-end blocks (even ruby!)
@@ -61,33 +66,26 @@ augroup bundles
            "   and `ir` for the inner portion of the block
     Plugin 'thoughtbot/vim-rspec'
     Plugin 'editorconfig/editorconfig-vim'
+    Plugin 'tpope/vim-fugitive'
 
   " code navigation
     Plugin 'scrooloose/nerdtree'
     Plugin 'majutsushi/tagbar'
-    Plugin 'tpope/vim-fugitive'
-    " Plugin 'xolox/vim-session'
     Plugin 'tpope/vim-obsession'
-    " Plugin 'FuzzyFinder'
     Plugin 'kien/ctrlp.vim'
     Plugin 'rking/ag.vim'
     Plugin 'FelikZ/ctrlp-py-matcher'
 
     " suggestions (from DealerMatch)
     " 'Localtog/vim-easymotion'
-    " 'scroolosse/syntastic'
-    " 'kien/ctrlp.vim'
     " 'ervandew/supertab'
     " 'briancollins/vim-jst'
     " 'nelstrom/vim-visual-star-search'
     " 'tomasr/molakai'
-    " 'vim-javascript'
-    " 'jgdavey/vim-blockle'
-    " 'ngmy/vim-rubocop'
     "  ---> see also: `let vimrubocop_config='config/rubocop/rubocop.yml'`
 
   " code reference / help
-  Plugin 'rizzatti/dash.vim'
+  " Plugin 'rizzatti/dash.vim'
 
   call vundle#end()
   filetype plugin indent on

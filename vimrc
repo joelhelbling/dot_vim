@@ -13,11 +13,11 @@ let s:default_path = escape(&path, '\ ') " store default value of 'path'
 " Always add the current file's directory to the path and tags list if not
 " already there. Add it to the beginning to speed up searches.
 autocmd BufRead *
-      \ let s:tempPath=escape(escape(expand("%:p:h"), ' '), '\ ') |
-      \ exec "set path-=".s:tempPath |
-      \ exec "set path-=".s:default_path |
-      \ exec "set path^=".s:tempPath |
-      \ exec "set path^=".s:default_path
+  \ let s:tempPath=escape(escape(expand("%:p:h"), ' '), '\ ') |
+  \ exec "set path-=".s:tempPath |
+  \ exec "set path-=".s:default_path |
+  \ exec "set path^=".s:tempPath |
+  \ exec "set path^=".s:default_path
 
 set backupdir=./.vim-backup,~/.vim/backup
 set directory=./.vim-backup,~/.vim/tmp
@@ -36,16 +36,17 @@ set visualbell
 
 " Theme
 syntax enable
-set background=light
 " colorscheme solarized
 " colorscheme solarized8_light_high
 colorscheme darcula
+set background=dark             " Why these hijinx?
+set background=light            " Somehow get more colors from Darcula this way.
 syntax on
 " command! DARK :set background=dark
 " command! LIGHT :set background=light
 command! DARK :colorscheme solarized8_dark_high
 command! LIGHT :colorscheme solarized8_light_high
-let g:colorizer_auto_filetype='css,html'
+let g:colorizer_auto_filetype='css,html,less,sass,scss,styl'
 
 set softtabstop=2               " number of spaces in soft tab
 set shiftwidth=2                " number of spaces to shift <>
@@ -101,7 +102,6 @@ if has("gui_mac") || has("gui_macvim")
 
 elseif has("gui") " means it's gvim
   " Set font for Ubuntu
-
   set guifont=Cousine\ for\ Powerline\ 14
 endif
 
@@ -129,23 +129,25 @@ nnoremap <C-_> <C-W>_     " maximize current window height
 " nnoremap <C-|> <C-W>|     " maximize current window width
 
 " Status line
-"set statusline=%f%m\ %y
-"set statusline+=%m%=
-"set statusline+=LINE:%l\/%L(%p%%)
-"set statusline+=\ COL:%v
-"set statusline+=\ CHR:0x\%02.2B
-""set statusline=%F%m%r%h%w\ %{&ff}\ %Y\ [0x\%02.2B]\ %l/%L,%v\ %p%%
-set laststatus=2                " make status line visible
+hi User1 ctermfg=red ctermbg=236 guifg=#eea040 guibg=#222222
+hi User2 ctermfg=darkred ctermbg=236 guifg=#dd3333 guibg=#222222
+hi User3 ctermfg=magenta ctermbg=236 guifg=#ff66ff guibg=#222222
+hi User4 ctermfg=darkgreen ctermbg=236 guifg=#a0ee40 guibg=#222222
+hi User5 ctermfg=darkyellow ctermbg=236 guifg=#eeee40 guibg=#222222
+
+set statusline=
+set statusline+=%4*\ %f%* " path
+set statusline+=%2*%m%*   " modified flag
+set statusline+=%3*\ %y%* " buffer syntax
+
+set laststatus=2          " make status line visible
 
 let mapleader = ","
 
 " Beautify HTML, XML
 command! Thtml :%!tidy -q -i -html
 command! Txml  :%!tidy -q -i -xml
-command! Tjson :%!python -m json.tool
-
-" needed for vim-textobj-rubyblock
-runtime macros/matchit.vim
+command! Tjson :%!jq -M --indent 2 .
 
 " clear trailing whitespace from file
 map <leader>s :%s/\s\s*$//g<CR>
@@ -153,26 +155,15 @@ map <leader>s :%s/\s\s*$//g<CR>
 " Auto-check spelling when editing markdown files:
 autocmd BufNewFile,BufRead *.markdown setlocal spell spelllang=en_us
 
+" redraw the screen (helpful in tmux)
+map <leader>d :redraw!<CR>
+
 " automatically source vimrc if writing .vimrc or vimrc
 if has("autocmd")
   autocmd! BufWritePost .vimrc source $MYVIMRC
 endif
 
-" redraw the screen (helpful in tmux)
-map <leader>d :redraw!<CR>
-
-" BUNDLE CONFIG --------------------------------------------------
-
-" bling/vim-airline
-set encoding=utf-8
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme='powerlineish'
-
-if !exists('g:airline_symbols')
-  let g:airline_symbols = {}
-endif
-let g:airline_symbols.space = "\ua0"
+" PLUGIN CONFIG --------------------------------------------------
 
 " scrooloose/nerdtree
 "map <leader>n :NERDTreeToggle<CR> " toggle project pane
@@ -188,9 +179,9 @@ nmap <F8> :TagbarToggle<CR>
 " tpope/vim-commentary
 " activate with \\\, \\{motion} or \\u (uncomment)
 if has('autocmd')
-  autocmd FileType ruby set commentstring=#\ %s
-  autocmd FileType javascript set commentstring=//\ %s
-  autocmd FileType vim set commentstring=\"\ %s
+  " autocmd FileType ruby set commentstring=#\ %s
+  " autocmd FileType javascript set commentstring=//\ %s
+  " autocmd FileType vim set commentstring=\"\ %s
   autocmd FileType moon set commentstring=--\ %s
   autocmd FileType lua set commentstring=--\ %s
 
@@ -200,11 +191,31 @@ if has('autocmd')
   autocmd FileType lua setlocal noexpandtab
 endif
 
+" nelstrom/vim-textobj-rubyblock
+runtime macros/matchit.vim
+
 " thoughtbot/vim-rspec
 map <Leader>t :call RunCurrentSpecFile()<CR>
 "map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>l :call RunLastSpec()<CR>
 map <Leader>a :call RunAllSpecs()<CR>
+
+" mxw/vim-jsx
+let g:jsx_ext_required = 0 " Allow JSX in normal JS files
+let g:syntastic_javascript_checkers = ['eslint']
+
+" pangloss/vim-javascript
+let g:javascript_plugin_jsdoc = 1
+
+" scroolosse/syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
 " tpope/obsession
 augroup sourcesession
@@ -216,12 +227,6 @@ augroup sourcesession
   \ Obsess ./.vim-backup/Session.vim |
   \
 augroup END
-
-" FuzzyFinder
-"map <leader>b :FufBuffer<CR>      " pick a file from the buffers
-"map <leader>o :FufFile<CR>        " open a file
-"map <leader>f :FufLine<CR>        " find a line
-"map <leader>t :FufTag<CR>         " find a tag
 
 " ctrlp
 map <Ctrl>p :CtrlPMixed
@@ -236,13 +241,6 @@ let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
 
 " Ag
 map <leader>f :Ag<space>
-
-" for Kramer
-"command! KJON :inoremap kj <Esc>
-"command! KJOFF :iunmap kj
-
-" for Dustin
-"cabbr W w
 
 " for Tmux
 command! RD :redraw!
@@ -280,4 +278,13 @@ let g:elm_syntastic_show_warnings = 1
 let g:ycm_semantic_triggers = {
   \ 'elm' : ['.'],
   \}
+
+" JUST FOR FRIENDS -----------------------------------------------
+
+" for Kramer
+"command! KJON :inoremap kj <Esc>
+"command! KJOFF :iunmap kj
+
+" for Dustin
+"cabbr W w
 
