@@ -16,26 +16,33 @@ augroup bundles
     Plugin 'altercation/vim-colors-solarized'
     Plugin 'lifepillar/vim-solarized8'
     Plugin 'blueshirts/darcula'
+    Plugin 'tomasr/molokai'
+    Plugin 'zcodes/vim-colors-basic'
 
   " languages support
-    Plugin 'kchmck/vim-coffee-script'
-    Plugin 'elixir-lang/vim-elixir'
+    " Plugin 'kchmck/vim-coffee-script'
+    " Plugin 'elixir-lang/vim-elixir'
     Plugin 'vim-ruby/vim-ruby'
     Plugin 'tpope/vim-bundler'
     Plugin 'tpope/vim-rails'
-    Plugin 'tpope/vim-cucumber'
-    Plugin 'tpope/vim-haml'
+    " Plugin 'tpope/vim-cucumber'
+    " Plugin 'tpope/vim-haml'
     " Plugin 'liquid.vim'
-    Plugin 'slim-template/vim-slim'
-    Plugin 'groenewege/vim-less'
-    Plugin 'wavded/vim-stylus'
-    Plugin 'itspriddle/vim-jquery'
-    Plugin 'nono/vim-handlebars'
-    Plugin 'fatih/vim-go'
-    Plugin 'leafo/moonscript-vim'
+    " Plugin 'slim-template/vim-slim'
+    " Plugin 'groenewege/vim-less'
+    " Plugin 'wavded/vim-stylus'
+    " Plugin 'itspriddle/vim-jquery'
+    " Plugin 'nono/vim-handlebars'
+    " Plugin 'fatih/vim-go'
+    " Plugin 'leafo/moonscript-vim'
     Plugin 'ElmCast/elm-vim'
-    Plugin 'mxw/vim-jsx'
+    " Plugin 'mxw/vim-jsx'
     Plugin 'vim-javascript'
+    Plugin 'leafgarland/typescript-vim'
+    Plugin 'Shougo/vimproc.vim'
+    Plugin 'Quramy/vim-js-pretty-template'
+    Plugin 'Quramy/tsuquyomi'
+    Plugin 'burnettk/vim-angular'
 
   " coding helpers
     Plugin 'vim-syntastic/syntastic'
@@ -50,7 +57,8 @@ augroup bundles
     Plugin 'tpope/vim-endwise'
     " -- auto-end blocks (even ruby!)
 
-    Plugin 'vim-scripts/HTML-AutoCloseTag'
+    " Plugin 'vim-scripts/HTML-AutoCloseTag'
+    Plugin 'alvan/vim-closetag'
     " auto-close html tags
 
     " Plugin 'Townk/vim-autoclose'
@@ -81,7 +89,6 @@ augroup bundles
     " 'ervandew/supertab'
     " 'briancollins/vim-jst'
     " 'nelstrom/vim-visual-star-search'
-    " 'tomasr/molakai'
     "  ---> see also: `let vimrubocop_config='config/rubocop/rubocop.yml'`
 
   " code reference / help

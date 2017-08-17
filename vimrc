@@ -38,9 +38,11 @@ set visualbell
 syntax enable
 " colorscheme solarized
 " colorscheme solarized8_light_high
-colorscheme darcula
-set background=dark             " Why these hijinx?
-set background=light            " Somehow get more colors from Darcula this way.
+colorscheme basic-light
+if ! has("gui_running")
+  set background=dark             " Why these hijinx?
+  set background=light            " Somehow get more colors from Darcula this way.
+endif
 syntax on
 " command! DARK :set background=dark
 " command! LIGHT :set background=light
@@ -82,8 +84,8 @@ if has("gui_mac") || has("gui_macvim")
   " Set font for Mac OSX
   " set guifont=Anonymous\ Pro\ for\ Powerline:h14
   " set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h14
-  " set guifont=Droid\ Sans\ Mono\ Dotted\ for\ Powerline:h14
-  set guifont=Droid\ Sans\ Mono\ Slashed\ for\ Powerline:h14
+  set guifont=Droid\ Sans\ Mono\ Dotted\ for\ Powerline:h16
+  " set guifont=Droid\ Sans\ Mono\ Slashed\ for\ Powerline:h14
   " set guifont=Fira\ Mono\ for\ Powerline:h14
   " set guifont=Fira\ Mono\ Medium\ for\ Powerline:h14
   " set guifont=Inconsolata\ for\ Powerline:h18
@@ -200,6 +202,9 @@ map <Leader>t :call RunCurrentSpecFile()<CR>
 map <Leader>l :call RunLastSpec()<CR>
 map <Leader>a :call RunAllSpecs()<CR>
 
+autocmd FileType typescript JsPreTmpl html
+autocmd FileType typescript syn clear foldBraces
+
 " mxw/vim-jsx
 let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 let g:syntastic_javascript_checkers = ['eslint']
@@ -208,6 +213,10 @@ let g:syntastic_javascript_checkers = ['eslint']
 let g:javascript_plugin_jsdoc = 1
 
 " scroolosse/syntastic
+let g:syntastic_mode_map = {
+    \ "mode": "active",
+    \ "passive_filetypes": ["html"] }
+
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
@@ -216,6 +225,15 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
+" TsuQuyomi settings
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+" let g:tsuquyomi_disable_quickfix = 1
+let g:syntastic_typescript_checkers = ['tsuquyomi']
 
 " tpope/obsession
 augroup sourcesession
