@@ -48,6 +48,7 @@ syntax on
 " command! LIGHT :set background=light
 command! DARK :colorscheme solarized8_dark_high
 command! LIGHT :colorscheme solarized8_light_high
+highlight Comment cterm=italic
 let g:colorizer_auto_filetype='css,html,less,sass,scss,styl'
 
 set softtabstop=2               " number of spaces in soft tab
