@@ -38,7 +38,7 @@ set visualbell
 syntax enable
 " colorscheme solarized
 " colorscheme solarized8_light_high
-colorscheme basic-light
+colorscheme darcula
 if ! has("gui_running")
   set background=dark             " Why these hijinx?
   set background=light            " Somehow get more colors from Darcula this way.
@@ -233,7 +233,7 @@ let g:syntastic_check_on_wq = 0
 " set statusline+=%*
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-" let g:tsuquyomi_disable_quickfix = 1
+let g:tsuquyomi_disable_quickfix = 1
 let g:syntastic_typescript_checkers = ['tsuquyomi']
 
 " tpope/obsession
