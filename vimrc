@@ -145,21 +145,13 @@ set statusline+=%3*\ %y%* " buffer syntax
 
 set laststatus=2          " make status line visible
 
-let mapleader = ","
-
 " Beautify HTML, XML
 command! Thtml :%!tidy -q -i -html
 command! Txml  :%!tidy -q -i -xml
 command! Tjson :%!jq -M --indent 2 .
 
-" clear trailing whitespace from file
-map <leader>s :%s/\s\s*$//g<CR>
-
 " Auto-check spelling when editing markdown files:
 autocmd BufNewFile,BufRead *.markdown setlocal spell spelllang=en_us
-
-" redraw the screen (helpful in tmux)
-map <leader>d :redraw!<CR>
 
 " automatically source vimrc if writing .vimrc or vimrc
 if has("autocmd")
@@ -167,14 +159,6 @@ if has("autocmd")
 endif
 
 " PLUGIN CONFIG --------------------------------------------------
-
-" scrooloose/nerdtree
-"map <leader>n :NERDTreeToggle<CR> " toggle project pane
-nmap <silent> <Leader>n :call g:WorkaroundNERDTreeToggle()<CR> " toggle project pane with workaround for deleted NT buffer
-
-function! g:WorkaroundNERDTreeToggle()
-  try | NERDTreeToggle | catch | silent! NERDTree | endtry
-endfunction
 
 " majutsushi/tagbar
 nmap <F8> :TagbarToggle<CR>
@@ -198,11 +182,6 @@ endif
 runtime macros/matchit.vim
 
 " thoughtbot/vim-rspec
-map <Leader>t :call RunCurrentSpecFile()<CR>
-"map <Leader>s :call RunNearestSpec()<CR>
-map <Leader>l :call RunLastSpec()<CR>
-map <Leader>a :call RunAllSpecs()<CR>
-
 autocmd FileType typescript JsPreTmpl html
 autocmd FileType typescript syn clear foldBraces
 
@@ -258,35 +237,23 @@ let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
       \ -g ""'
 let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
 
-" Ag
-map <leader>f :Ag<space>
-
 " for Tmux
 command! RD :redraw!
-map <leader>r :redraw!<CR>
-
-" quickly jump back to a recently edited file
-map <leader>, :CtrlPMRU<CR>
-let g:ctrlp_mruf_last_entered = 1
 
 " recognize .md as markdown
 au BufRead,BufNewFile *.md set filetype=markdown
 au BufRead,BufNewFile *.mdown set filetype=markdown
 
 " tab navigation
-nnoremap th  :tabfirst<CR>
+" nnoremap th  :tabfirst<CR>
 nnoremap tn  :tabnext<CR>
-nnoremap tk  :tabnext<CR>
-nnoremap tj  :tabprev<CR>
+" nnoremap tk  :tabnext<CR>
+" nnoremap tj  :tabprev<CR>
 nnoremap tp  :tabprev<CR>
-nnoremap tl  :tablast<CR>
-nnoremap te  :tabedit<Space>
-nnoremap tm  :tabm<Space>
-nnoremap td  :tabclose<CR>
-
-if filereadable('./.private/vimrc')
-  source ./.private/vimrc
-endif
+" nnoremap tl  :tablast<CR>
+" nnoremap te  :tabedit<Space>
+" nnoremap tm  :tabm<Space>
+" nnoremap td  :tabclose<CR>
 
 " Elm configurations
 let g:elm_format_autosave = 1
@@ -303,7 +270,9 @@ let g:ycm_semantic_triggers = {
 " for Kramer
 "command! KJON :inoremap kj <Esc>
 "command! KJOFF :iunmap kj
+inoremap kj <Esc>
 
 " for Dustin
 "cabbr W w
 
+source ~/.vim/scripts/leader.vim
