@@ -12,12 +12,13 @@ map <Leader>a :call RunAllSpecs()<CR>
 map <leader>d :redraw!<CR>
 
 " [[ e ]]
-
 " [[ f ]]
-" Ag
-map <leader>f :Ag<space>
+map <leader>f :CtrlPMixed<CR>
 
 " [[ g ]]
+" Ag
+map <leader>g :Ag<space>
+
 " [[ h ]]
 " [[ i ]]
 " [[ j ]]
@@ -52,6 +53,8 @@ map <Leader>t :call RunCurrentSpecFile()<CR>
 " [[ u ]]
 " [[ v ]]
 " [[ w ]]
+map <Leader>w :w<CR>
+
 " [[ x ]]
 " [[ y ]]
 " [[ z ]]
