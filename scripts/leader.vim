@@ -2,9 +2,13 @@ let mapleader = " "
 
 " [[ a ]]
 " thoughtbot/vim-rspec
-map <Leader>a :call RunAllSpecs()<CR>
+map <leader>a :call RunAllSpecs()<CR>
 
 " [[ b ]]
+" quickly jump back to a recently edited file
+map <leader>b :CtrlPMRU<CR>
+let g:ctrlp_mruf_last_entered = 1
+
 " [[ c ]]
 
 " [[ d ]]
@@ -39,6 +43,7 @@ nmap <silent> <Leader>n :call g:WorkaroundNERDTreeToggle()<CR>
 " [[ o ]]
 " [[ p ]]
 " [[ q ]]
+map <leader>q :qa<cr>
 " [[ r ]]
 
 " [[ s ]]
@@ -48,21 +53,20 @@ map <leader>s :%s/\s\s*$//g<CR>
 
 " [[ t ]]
 " thoughtbot/vim-rspec
-map <Leader>t :call RunCurrentSpecFile()<CR>
+" map <Leader>t :call RunCurrentSpecFile()<CR>
+map <leader>t :tab
 
 " [[ u ]]
 " [[ v ]]
+
 " [[ w ]]
-map <Leader>w :w<CR>
+map <leader>w :w<cr>
 
 " [[ x ]]
 " [[ y ]]
 " [[ z ]]
 
 " [[ , ]]
-" quickly jump back to a recently edited file
-map <leader>, :CtrlPMRU<CR>
-let g:ctrlp_mruf_last_entered = 1
 
 " .......supporting functions......
 function! g:WorkaroundNERDTreeToggle()
