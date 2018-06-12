@@ -166,16 +166,8 @@ nmap <F8> :TagbarToggle<CR>
 " tpope/vim-commentary
 " activate with \\\, \\{motion} or \\u (uncomment)
 if has('autocmd')
-  " autocmd FileType ruby set commentstring=#\ %s
-  " autocmd FileType javascript set commentstring=//\ %s
-  " autocmd FileType vim set commentstring=\"\ %s
   autocmd FileType moon set commentstring=--\ %s
   autocmd FileType lua set commentstring=--\ %s
-
-  autocmd FileType moon set listchars=tab:¬,trail:¬,nbsp:%
-  autocmd FileType lua set listchars=tab:¬,trail:¬,nbsp:%
-  autocmd FileType moon setlocal noexpandtab
-  autocmd FileType lua setlocal noexpandtab
 endif
 
 " nelstrom/vim-textobj-rubyblock
