@@ -21,7 +21,7 @@ augroup bundles
 
   " languages support
     " Plugin 'kchmck/vim-coffee-script'
-    " Plugin 'elixir-lang/vim-elixir'
+    Plugin 'elixir-lang/vim-elixir'
     Plugin 'vim-ruby/vim-ruby'
     Plugin 'tpope/vim-bundler'
     Plugin 'tpope/vim-rails'
