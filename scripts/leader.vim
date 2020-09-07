@@ -2,7 +2,7 @@ let mapleader = " "
 
 " [[ a ]]
 " thoughtbot/vim-rspec
-map <leader>a :call RunAllSpecs()<CR>
+" map <leader>a :call RunAllSpecs()<CR>
 
 " [[ b ]]
 " quickly jump back to a recently edited file
@@ -30,7 +30,7 @@ map <leader>g :Ag<space>
 
 " [[ l ]]
 " thoughtbot/vim-rspec
-map <Leader>l :call RunLastSpec()<CR>
+" map <Leader>l :call RunLastSpec()<CR>
 
 " [[ m ]]
 

@@ -38,11 +38,12 @@ set visualbell
 syntax enable
 " colorscheme solarized
 " colorscheme solarized8_light_high
-colorscheme darcula
-if ! has("gui_running")
-  set background=dark             " Why these hijinx?
-  set background=light            " Somehow get more colors from Darcula this way.
-endif
+" colorscheme darcula
+colorscheme dracula
+" if ! has("gui_running")
+"   set background=dark             " Why these hijinx?
+"   set background=light            " Somehow get more colors from Darcula this way.
+" endif
 syntax on
 " command! DARK :set background=dark
 " command! LIGHT :set background=light
@@ -173,39 +174,61 @@ endif
 " nelstrom/vim-textobj-rubyblock
 runtime macros/matchit.vim
 
-" thoughtbot/vim-rspec
-autocmd FileType typescript JsPreTmpl html
-autocmd FileType typescript syn clear foldBraces
+try " depends on dense-analysis/ale
+  let g:ale_linters = {'ruby': ['standardrb']}
+  let g:ale_fixers = {'ruby': ['standardrb']}
+  let g:ale_fix_on_save = 1
+  let g:ruby_indent_assignment_style = 'variable'
+catch
+endtry
 
-" mxw/vim-jsx
-let g:jsx_ext_required = 0 " Allow JSX in normal JS files
-let g:syntastic_javascript_checkers = ['eslint']
+try " thoughtbot/vim-rspec
+  autocmd FileType typescript JsPreTmpl html
+  autocmd FileType typescript syn clear foldBraces
+catch
+endtry
+
+try
+  let g:jsx_ext_required = 0 " Allow JSX in normal JS files
+catch
+endtry
+
+try
+  let g:syntastic_javascript_checkers = ['eslint']
+catch
+endtry
 
 " pangloss/vim-javascript
 let g:javascript_plugin_jsdoc = 1
 
-" scroolosse/syntastic
-let g:syntastic_mode_map = {
-    \ "mode": "active",
-    \ "passive_filetypes": ["html"] }
+try
+  " scroolosse/syntastic
+  let g:syntastic_mode_map = {
+      \ "mode": "active",
+      \ "passive_filetypes": ["html"] }
 
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+  set statusline+=%#warningmsg#
+  set statusline+=%{SyntasticStatuslineFlag()}
+  set statusline+=%*
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+  let g:syntastic_always_populate_loc_list = 1
+  let g:syntastic_auto_loc_list = 1
+  let g:syntastic_check_on_open = 1
+  let g:syntastic_check_on_wq = 0
+catch
+endtry
 
-" TsuQuyomi settings
-" set statusline+=%#warningmsg#
-" set statusline+=%{SyntasticStatuslineFlag()}
-" set statusline+=%*
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:tsuquyomi_disable_quickfix = 1
-let g:syntastic_typescript_checkers = ['tsuquyomi']
+try
+  " TsuQuyomi settings
+  " set statusline+=%#warningmsg#
+  " set statusline+=%{SyntasticStatuslineFlag()}
+  " set statusline+=%*
+  let g:syntastic_check_on_open = 1
+  let g:syntastic_check_on_wq = 0
+  let g:tsuquyomi_disable_quickfix = 1
+  let g:syntastic_typescript_checkers = ['tsuquyomi']
+catch
+endtry
 
 " tpope/obsession
 augroup sourcesession
@@ -229,7 +252,7 @@ if executable('ag')
   " Use ag over grep
   set grepprg=ag\ --nogroup\ --nocolor
 
-  " Use ag in CtrlP for listing files. Lightning fast and respects
+  " Use ag in CtrlP for listing filesD Lightning fast and respects
   " .gitignore
   let g:ctrlp_user_command = 'ag %s -i -l --nocolor -g ""'
 
@@ -257,9 +280,13 @@ nnoremap tp  :tabprev<CR>
 
 " Elm configurations
 let g:elm_format_autosave = 1
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:elm_syntastic_show_warnings = 1
+try
+  let g:syntastic_always_populate_loc_list = 1
+  let g:syntastic_auto_loc_list = 1
+  let g:elm_syntastic_show_warnings = 1
+catch
+  echo "Unable to configure Syntastic for Elm"
+endtry
 
 let g:ycm_semantic_triggers = {
   \ 'elm' : ['.'],
