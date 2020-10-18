@@ -39,7 +39,10 @@ syntax enable
 " colorscheme solarized
 " colorscheme solarized8_light_high
 " colorscheme darcula
-colorscheme dracula
+" colorscheme dracula
+colorscheme pencil
+set background=dark
+let g:pencil_higher_contrast_ui = 0   " 0=low (def), 1=high
 " if ! has("gui_running")
 "   set background=dark             " Why these hijinx?
 "   set background=light            " Somehow get more colors from Darcula this way.
@@ -49,7 +52,6 @@ syntax on
 " command! LIGHT :set background=light
 command! DARK :colorscheme solarized8_dark_high
 command! LIGHT :colorscheme solarized8_light_high
-highlight Comment cterm=italic
 let g:colorizer_auto_filetype='css,html,less,sass,scss,styl'
 
 set softtabstop=2               " number of spaces in soft tab
@@ -86,7 +88,8 @@ if has("gui_mac") || has("gui_macvim")
   " Set font for Mac OSX
   " set guifont=Anonymous\ Pro\ for\ Powerline:h14
   " set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h14
-  set guifont=Droid\ Sans\ Mono\ Dotted\ for\ Powerline:h16
+  " set guifont=Droid\ Sans\ Mono\ Dotted\ for\ Powerline:h16
+  set guifont=Victor\ Mono\ Regular:h16
   " set guifont=Droid\ Sans\ Mono\ Slashed\ for\ Powerline:h14
   " set guifont=Fira\ Mono\ for\ Powerline:h14
   " set guifont=Fira\ Mono\ Medium\ for\ Powerline:h14
@@ -303,3 +306,4 @@ inoremap kj <Esc>
 "cabbr W w
 
 source ~/.vim/scripts/leader.vim
+highlight Comment cterm=italic gui=italic
