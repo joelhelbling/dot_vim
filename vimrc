@@ -3,6 +3,8 @@
 
 set nocompatible
 
+let g:coc_node_path = '~/.asdf/shims/node'
+
 " Automatically create .backup directory, writable by the group.
 if filewritable('.') && ! filewritable('.vim-backup')
   silent execute '!umask 002; mkdir .vim-backup'
@@ -178,8 +180,8 @@ endif
 runtime macros/matchit.vim
 
 try " depends on dense-analysis/ale
-  let g:ale_linters = {'ruby': ['standardrb']}
-  let g:ale_fixers = {'ruby': ['standardrb']}
+  let g:ale_linters = {'ruby': ['standardrb'], 'javascript': ['standard']}
+  let g:ale_fixers = {'ruby': ['standardrb'], 'javascript': ['standard']}
   let g:ale_fix_on_save = 1
   let g:ruby_indent_assignment_style = 'variable'
 catch
@@ -211,7 +213,7 @@ try
       \ "passive_filetypes": ["html"] }
 
   set statusline+=%#warningmsg#
-  set statusline+=%{SyntasticStatuslineFlag()}
+  " set statusline+=%{SyntasticStatuslineFlag()}
   set statusline+=%*
 
   let g:syntastic_always_populate_loc_list = 1

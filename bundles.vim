@@ -22,7 +22,8 @@ augroup bundles
     " Plugin 'zcodes/vim-colors-basic'
 
   " coding helpers
-    Plugin 'vim-syntastic/syntastic'
+    Plugin 'neoclide/coc.nvim', { 'branch': 'release' }
+    " Plugin 'vim-syntastic/syntastic'
     " -- https://github.com/vim-syntastic/syntastic
     Plugin 'tpope/vim-commentary'
     " -- comment whole blocks (combine with rubyblock!)
