@@ -8,7 +8,7 @@ augroup bundles
   call vundle#begin()                " invoke vundle
 
   " let Vundle manage vundle
-    Plugin 'gmarik/Vundle.vim'
+    Plugin 'VundleVim/Vundle.vim'
 
     Plugin 'L9'
 
